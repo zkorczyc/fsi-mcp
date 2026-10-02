@@ -8,6 +8,7 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "start:http": "tsx src/http.ts",
+    "start:render": "node dist/src/http.js",
     "build": "tsc && mkdir -p dist/data/synthetic && cp data/synthetic/*.json dist/data/synthetic/",
     "test": "tsx --test tests/*.test.ts",
     "migrate": "tsx scripts/migrate.ts",

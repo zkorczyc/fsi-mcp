@@ -4,7 +4,7 @@ services:
     runtime: node
     plan: free
     buildCommand: npm ci && npm run build
-    startCommand: node dist/src/http.js
+    startCommand: npm run start:render
     healthCheckPath: /health
     envVars:
       - key: NODE_ENV

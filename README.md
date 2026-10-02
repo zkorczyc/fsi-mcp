@@ -42,6 +42,8 @@ npm run start:http
 
 `render.yaml` is a starter deployment blueprint. Add the dedicated Neon connection string and a generated API key as service secrets, deploy, then register the HTTPS `/mcp` URL with Coworker. Do not commit `.env` or paste credentials into source files.
 
+The Render start command is `npm run start:render`, which runs the built Streamable HTTP server. If the Render dashboard has a manual start-command override, set it to the same command; do not use the stdio entrypoint `dist/src/index.js` for a web service.
+
 ## Tools
 
 | Tool | Purpose |
