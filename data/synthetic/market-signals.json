@@ -294,8 +294,8 @@
     "country": "US",
     "product_category": "credit_card",
     "signal_type": "competitor_offer",
-    "title": "Liberty Harbor raises its travel welcome bonus",
-    "summary": "A fictional 70,000-point bonus now requires $4,000 eligible spend in three months and carries a $95 annual fee.",
+    "title": "Northstar launches a 30,000-point card welcome bonus",
+    "summary": "Northstar's fictional 30,000-point bonus requires $3,000 eligible spend in three months and carries a $195 annual fee, versus SecurFinancial Secur Gold's 25,000 points after $3,000 spend and $95 annual fee.",
     "direction": "more_competitive",
     "impact": "high",
     "status": "ACTIVE",
@@ -303,7 +303,7 @@
     "effective_to": "2026-12-31",
     "source": "MarketPulse (synthetic)",
     "confidence": 0.94,
-    "product_subcategory": "travel_rewards"
+    "product_subcategory": "rewards"
   },
   {
     "signal_id": "FSI-US-CARD-002",
@@ -312,7 +312,7 @@
     "product_category": "credit_card",
     "signal_type": "competitor_offer",
     "title": "Redstone adds an introductory cash-back boost",
-    "summary": "Redstone's fictional no-annual-fee card offers 3% cash back in selected categories for six months, then 1.5% ongoing.",
+    "summary": "Redstone's fictional no-annual-fee card offers 3% cash back in selected categories for six months, then 0.5% ongoing, below SecurFinancial's 1.5% ongoing cash back.",
     "direction": "more_competitive",
     "impact": "high",
     "status": "ACTIVE",

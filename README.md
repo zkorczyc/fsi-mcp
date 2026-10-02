@@ -64,7 +64,7 @@ Signal status is deliberately seeded rather than computed from today's date. Mar
 
 | Market | Active signals | Planted condition | Comparison data |
 | --- | ---: | --- | --- |
-| `US_RETAIL_BANKING` (US) | 6 | Credit-card bonus, cashback, and balance-transfer competition; proposition comparison covers matching cashback, travel-rewards, and balance-transfer subcategories. | SecurFinancial and fictional US card providers. |
+| `US_RETAIL_BANKING` (US) | 6 | A larger Northstar points bonus comes with a higher annual fee; Secur Gold has stronger ongoing points with a moderate bonus, while Redstone's cashback drops after its teaser period. | Secur Gold/Northstar are matched under `rewards`; Redstone is compared with SecurFinancial's `cashback` product. |
 | `UK_RETAIL_BANKING` (GB) | 8 | SecurFinancial's selected flexible-savings proposition is relatively attractive; card and mortgage signals add context. | Existing UK savings, credit-card, and mortgage propositions. |
 | `DE_RETAIL_BANKING` (DE) | 6 | Tagesgeld rates and short introductory periods create mixed deposit conditions. | SecurFinancial and two fictional Tagesgeld providers. |
 | `FR_RETAIL_BANKING` (FR) | 6 | Selected prêt immobilier fixed rates have moved down, with competitors below SecurFinancial on sampled terms. | SecurFinancial and two fictional mortgage providers. |
@@ -133,13 +133,13 @@ Response excerpt:
 Request:
 
 ```json
-{"market":"US","product_category":"credit_card"}
+{"market":"US","product_category":"credit_card","product_subcategory":"rewards"}
 ```
 
 Response excerpt:
 
 ```json
-{"market":"US_RETAIL_BANKING","product_category":"credit_card","product_subcategory":["cashback"],"reference_date":"2026-10-02","propositions":[{"provider":"SecurFinancial","product_name":"Secur Everyday Cash","primary_rate":27.9,"rate_type":"variable_purchase_apr","currency":"USD","product_subcategory":"cashback"},{"provider":"Redstone Financial","product_name":"Redstone Select Cash","primary_rate":28.9,"rate_type":"variable_purchase_apr","currency":"USD","product_subcategory":"cashback"}],"comparison_note":"Offers differ on annual fee, reward rate, introductory bonus, spend threshold, and APR; compare eligibility and terms rather than treating one field as a complete value score."}
+{"market":"US_RETAIL_BANKING","product_category":"credit_card","product_subcategory":["rewards"],"reference_date":"2026-10-02","propositions":[{"provider":"SecurFinancial","product_name":"Secur Gold","fee":95,"reward_rate":2,"intro_offer":"25,000 points after $3,000 eligible spend in 3 months","product_subcategory":"rewards"},{"provider":"Northstar","product_name":"Northstar Premier Rewards","fee":195,"reward_rate":1.5,"intro_offer":"30,000 points after $3,000 eligible spend in 3 months","product_subcategory":"rewards"}],"comparison_note":"Offers differ on annual fee, reward rate, introductory bonus, spend threshold, and APR; compare eligibility and terms rather than treating one field as a complete value score."}
 ```
 
 ## Planted Demo Stories
@@ -147,7 +147,7 @@ Response excerpt:
 | Market/story | External market evidence | Adobe handoff |
 | --- | --- | --- |
 | UK savings | Selected SecurFinancial easy-access rate leads the sampled propositions; flexible-savings interest is rising. | The original demo brief cites about **58,871** profiles with high new-account propensity and no savings account. Verify this count in Adobe before assessing an acquisition opportunity. |
-| US credit cards | Fictional competitors are increasing points bonuses, cash-back promotions, and balance-transfer terms. | Query Adobe for US-market card intent and no-card ownership; compare audience scale with the more aggressive offers before recommending investigation. |
+| US credit cards | Northstar's fictional 30,000-point offer has a $195 annual fee; Secur Gold offers 25,000 points, 2 points per dollar ongoing, and a $95 fee. Redstone's 3% introductory cash back falls to 0.5%, below SecurFinancial's 1.5% ongoing cash back. | The demo's Adobe opportunity is **70,277** profiles with card intent and no card. Validate audience criteria, consent, and the count in Adobe. The competitor headline is stronger, but not universally better value. |
 | Germany savings | Tagesgeld rates and short promotional periods are diverging; the best ongoing rate is not necessarily the best introductory rate. | Query Adobe for the relevant German-market savings propensity and ownership gap. No audience count is stored here. |
 | France mortgages | Selected fixed-rate prêt immobilier offers have moved lower; terms, apport, and frais de dossier differ. | Query Adobe for French-market mortgage propensity and ownership data before assessing the opportunity. No audience count is stored here. |
 | Italy savings | The selected SecurFinancial ongoing rate leads, while a competitor's temporary rate is higher for three months. | Query Adobe for Italian-market savings propensity and ownership data; distinguish introductory response from sustained proposition value. No audience count is stored here. |

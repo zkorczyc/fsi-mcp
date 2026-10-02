@@ -89,9 +89,22 @@ test("global market aliases and proposition comparisons resolve locally", async 
   assert.match(france.comparison_note, /apport/);
 
   const usCards = await compareMarketPropositions({ market: "US", product_category: "credit_card" });
-  assert.deepEqual(new Set(usCards.product_subcategory), new Set(["cashback", "travel_rewards", "balance_transfer"]));
+  assert.deepEqual(new Set(usCards.product_subcategory), new Set(["cashback", "rewards", "balance_transfer"]));
   assert.ok(usCards.propositions.some((item) => item.provider === "Redstone Financial"));
-  assert.ok(usCards.propositions.some((item) => item.provider === "Liberty Harbor"));
+  const securGold = usCards.propositions.find((item) => item.product_name === "Secur Gold");
+  const northstar = usCards.propositions.find((item) => item.product_name === "Northstar Premier Rewards");
+  const redstone = usCards.propositions.find((item) => item.product_name === "Redstone Select Cash");
+  const securCash = usCards.propositions.find((item) => item.product_name === "Secur Everyday Cash");
+  assert.ok(securGold && northstar && redstone && securCash);
+  assert.equal(securGold.product_subcategory, "rewards");
+  assert.equal(northstar.product_subcategory, "rewards");
+  assert.equal(securGold.fee, 95);
+  assert.equal(northstar.fee, 195);
+  assert.match(securGold.intro_offer, /25,000 points/);
+  assert.match(northstar.intro_offer, /30,000 points/);
+  assert.match(redstone.intro_offer, /3%.*then 0.5%/);
+  assert.equal(redstone.reward_rate, 0.5);
+  assert.equal(securCash.reward_rate, 1.5);
 });
 
 test("three planted stories surface deliberately different market contexts", async () => {
