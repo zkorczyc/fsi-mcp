@@ -2,14 +2,14 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { fixtureAtms, fixturePropositions, fixtureSignals } from "../src/data.js";
 import {
-  findAtmAnomalies,
-  findAtms,
-  findNearestOperationalAtms,
-  getAtmDetails,
-  getAtmNetworkSummary,
+    findAtmAnomalies,
+    findAtms,
+    findNearestOperationalAtms,
+    getAtmDetails,
+    getAtmNetworkSummary,
 } from "../src/atm-network/service.js";
+import { fixtureAtms, fixturePropositions, fixtureSignals } from "../src/data.js";
 import { getActiveMarketSignals, searchMarketSignals } from "../src/market-signals/service.js";
 import { createMcpServer } from "../src/mcp.js";
 import { compareMarketPropositions } from "../src/propositions/service.js";
