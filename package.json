@@ -1,0 +1,41 @@
+{
+  "name": "public-securfinancial",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "SecurFinancial External Intelligence MCP with deterministic synthetic market and ATM intelligence.",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "start:http": "tsx src/http.ts",
+    "build": "tsc && mkdir -p dist/data/synthetic && cp data/synthetic/*.json dist/data/synthetic/",
+    "test": "tsx --test tests/*.test.ts",
+    "migrate": "tsx scripts/migrate.ts",
+    "seed": "tsx scripts/seed.ts",
+    "generate:atm": "tsx scripts/generate-atm-network.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.2",
+    "@neon/config": "^1.8.3",
+    "@neon/env": "^1.4.8",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.15.30",
+    "@types/pg": "^8.15.4",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "keywords": [
+    "MCP",
+    "financial-services",
+    "synthetic-data",
+    "market-signals"
+  ],
+  "author": "",
+  "license": "UNLICENSED"
+}

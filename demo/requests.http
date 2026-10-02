@@ -1,0 +1,31 @@
+### Active external market signals
+POST http://localhost:3000/mcp
+Content-Type: application/json
+Accept: application/json, text/event-stream
+Authorization: Bearer {{MCP_API_KEY}}
+
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"get_active_market_signals","arguments":{"product_category":"savings","limit":3}}}
+
+### Signal supporting details
+POST http://localhost:3000/mcp
+Content-Type: application/json
+Accept: application/json, text/event-stream
+Authorization: Bearer {{MCP_API_KEY}}
+
+{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"get_market_signal","arguments":{"signal_id":"FSI-CARD-001"}}}
+
+### Search recent mortgage pricing
+POST http://localhost:3000/mcp
+Content-Type: application/json
+Accept: application/json, text/event-stream
+Authorization: Bearer {{MCP_API_KEY}}
+
+{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"search_market_signals","arguments":{"market":"UK","product":"mortgage","keyword":"rates","from_date":"2026-09-01","impact":"high","limit":5}}}
+
+### Compare fictional card propositions
+POST http://localhost:3000/mcp
+Content-Type: application/json
+Accept: application/json, text/event-stream
+Authorization: Bearer {{MCP_API_KEY}}
+
+{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"compare_market_propositions","arguments":{"product_category":"credit_card","providers":["Northstar Bank","Cedarline Financial"]}}}

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: securfinancial-external-intelligence
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: node dist/src/http.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: MCP_API_KEY
+        sync: false
