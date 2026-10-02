@@ -1,20 +1,15 @@
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import express from "express";
-import { host, mcpApiKey, port } from "./config/env.js";
+import { host, port } from "./config/env.js";
 import { createMcpServer } from "./mcp.js";
 
-if (process.env.NODE_ENV === "production" && !mcpApiKey) {
-  throw new Error("MCP_API_KEY is required when NODE_ENV=production");
-}
+
 
 const app = express();
 app.use(express.json({ limit: "64kb" }));
 app.get("/health", (_request, response) => response.json({ status: "ok", name: "SecurFinancial External Intelligence MCP" }));
 app.post("/mcp", async (request, response) => {
-  if (mcpApiKey && request.header("authorization") !== `Bearer ${mcpApiKey}`) {
-    response.status(401).json({ error: "Unauthorized" });
-    return;
-  }
+
 
   const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined });
   const server = createMcpServer();
